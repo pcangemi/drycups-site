@@ -22,9 +22,13 @@ GitHub Actions (`.github/workflows/deploy.yml`).
 - URL : https://pcangemi.github.io/drycups-site/
 - Suivi des déploiements : onglet **Actions** du repo
 
-## Connecter le domaine dry-cups.com (optionnel)
+## Connecter le domaine dry-cups.fr / dry-cups.com (optionnel)
 
-1. Chez le registrar (OVH, Namecheap, Cloudflare…), ajouter :
+Les enregistrements sont identiques pour les deux domaines. Choisir **un seul
+domaine principal** dans Settings → Pages (ex. `dry-cups.fr`) ; l'autre se
+configure en simple redirection HTTP chez le registrar.
+
+1. Chez le registrar (IONOS, OVH, Cloudflare…), ajouter :
 
    | Type  | Nom | Valeur |
    |-------|-----|--------|
