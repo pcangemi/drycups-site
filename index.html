@@ -47,7 +47,7 @@
   @media (max-width:560px){
     .dc-nav-wordmark{display:none !important}
     nav{padding:10px 14px !important}
-    nav>a>img{height:42px !important}
+    nav a>img{height:42px !important}
     .dc-nav-right{gap:10px !important}
     .dc-nav-book{padding:9px 14px !important;white-space:nowrap}
   }
@@ -75,7 +75,8 @@
 <div data-drycups style="font-family:'Manrope',system-ui,sans-serif;color:#22262E;background:#F1EAE1;overflow-x:hidden;position:relative;">
 
   <!-- ===================== NAV ===================== -->
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 42px;background:rgba(20,22,27,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,231,223,.10);color:#EDE7DF;">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 42px;background:rgba(20,22,27,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,231,223,.10);color:#EDE7DF;">
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
     <a href="#top" style="display:flex;align-items:center;gap:13px;color:inherit;">
       <img src="images/logo-icon.png" alt="DryCups" style="height:50px;width:auto;display:block;">
       <span class="dc-nav-wordmark" style="display:flex;flex-direction:column;line-height:1;">
@@ -96,6 +97,7 @@
         <button id="dc-btn-en" style="border:none;cursor:pointer;padding:7px 13px;background:transparent;color:#A7ADB8;font-weight:600;transition:all .25s;">EN</button>
       </div>
       <a href="#rdv" class="dc-nav-book" style="display:inline-flex;align-items:center;gap:8px;background:#A33F1B;color:#F1EAE1;padding:11px 20px;border-radius:100px;font-size:13px;letter-spacing:.4px;box-shadow:0 8px 22px -10px rgba(163,63,27,.85);" data-i18n="navBook">Prendre RDV</a>
+    </div>
     </div>
   </nav>
 
@@ -342,9 +344,12 @@
   <footer style="background:#15171C;color:#A7ADB8;padding:64px 42px 40px;">
     <div class="dc-footer-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">
       <div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
-          <img src="images/logo-icon.png" alt="DryCups" style="height:46px;width:auto;display:block;filter:brightness(1.6);">
-          <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#EDE7DF;">DryCups</span>
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px;">
+          <img src="images/logo-icon.png" alt="DryCups" style="height:50px;width:auto;display:block;">
+          <span style="display:flex;flex-direction:column;line-height:1;color:#EDE7DF;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.3px;">DryCups</span>
+            <span style="font-family:'Ma Shan Zheng',cursive;font-size:14px;letter-spacing:3px;color:#F09267;margin-top:5px;">拔罐之道</span>
+          </span>
         </div>
         <p style="font-size:13.5px;line-height:1.7;font-weight:300;max-width:280px;" data-i18n="footerTagline">L'art ancestral des ventouses chaudes, dans sa forme la plus noble. Verre et bambou.</p>
       </div>
