@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DryCups — L'art ancestral des ventouses chauffées · Paris</title>
-<meta name="description" content="Cupping traditionnel chinois (bàguàn) à Paris. Ventouses de verre soufflé chauffées à la flamme — verre, bambou, cuivre, bois. Jamais de plastique.">
+<title>DryCups — L'art ancestral des ventouses chauffées · Côte d'Azur</title>
+<meta name="description" content="Cupping traditionnel chinois (bàguàn) à Nice, Cannes et Monaco. Ventouses de verre soufflé chauffées à la flamme — verre, bambou, bois. Jamais de plastique.">
 <meta property="og:title" content="DryCups — L'art ancestral des ventouses chauffées">
-<meta property="og:description" content="Cupping traditionnel chinois (bàguàn) à Paris. Verre, bambou, cuivre, bois. Jamais de plastique.">
+<meta property="og:description" content="Cupping traditionnel chinois (bàguàn) à Nice, Cannes et Monaco. Verre, bambou, bois. Jamais de plastique.">
 <meta property="og:image" content="images/hero.jpg">
 <link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,16 +20,21 @@
   a:hover{color:#8a6d3a}
   ::selection{background:#ECC8D2;color:#37425C}
   input,button,textarea{font-family:inherit;color:inherit}
+  /* Reserve two lines so the price row sits at the same height on every card */
+  .dc-plan-name{line-height:1.15;min-height:2.3em}
+  .dc-ic{width:16px;height:16px;flex:none;margin-top:3px;color:#A9884F}
+  .dc-pricing-featured .dc-ic{color:#C6A96A}
   @keyframes dc-floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
   @keyframes dc-cue{0%{transform:translateY(0);opacity:.9}100%{transform:translateY(11px);opacity:0}}
 
   /* Responsive adaptation (the design is 1280px-first) */
   @media (max-width:1080px){
-    .dc-hero-grid,.dc-ritual-grid,.dc-prac-grid,.dc-rdv-grid{grid-template-columns:1fr !important;gap:40px !important}
+    .dc-hero-grid,.dc-ritual-grid,.dc-prac-grid{grid-template-columns:1fr !important;gap:40px !important}
     .dc-ritual-sticky{position:relative !important;top:0 !important;max-width:420px;margin:0 auto;width:100%}
-    .dc-benefits-grid,.dc-materials-grid,.dc-cert-grid{grid-template-columns:repeat(2,1fr) !important}
+    .dc-benefits-grid,.dc-cert-grid{grid-template-columns:repeat(2,1fr) !important}
     .dc-pricing-grid{grid-template-columns:1fr !important;max-width:560px;margin:0 auto}
-    .dc-pricing-featured{transform:none !important}
+    .dc-pricing-featured{transform:none !important;padding-top:38px !important}
+    .dc-plan-name{min-height:0}
     .dc-testi-grid{grid-template-columns:1fr !important;max-width:640px;margin:0 auto}
     .dc-footer-grid{grid-template-columns:1fr 1fr !important}
   }
@@ -49,6 +54,22 @@
 </style>
 </head>
 <body>
+
+<!-- Icon sprite — Lucide (ISC), inlined so the page stays self-contained -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/></symbol>
+  <symbol id="i-heartpulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></symbol>
+  <symbol id="i-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-move" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m8 6 4-4 4 4"/><path d="m8 18 4 4 4-4"/><path d="M2 12h20"/><path d="m6 8-4 4 4 4"/><path d="m18 8 4 4-4 4"/></symbol>
+</defs></svg>
+
 <div data-drycups style="font-family:'Manrope',system-ui,sans-serif;color:#37425C;background:#F5EFE4;overflow-x:hidden;position:relative;">
 
   <!-- ===================== NAV ===================== -->
@@ -158,10 +179,9 @@
           <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#C6A96A;margin-bottom:14px;" data-i18n="materialsEyebrow">Matériaux nobles · Jamais de plastique</div>
           <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.4vw,62px);letter-spacing:-.5px;line-height:1.05;" data-i18n="materialsTitle">Que des matières qui respirent</h2>
         </div>
-        <p style="font-size:15px;line-height:1.7;font-weight:300;color:#BEC4D3;max-width:340px;" data-i18n="materialsIntro">Le verre, le bambou, le cuivre et le bois traversent le feu et le temps. Le plastique, jamais.</p>
+        <p style="font-size:15px;line-height:1.7;font-weight:300;color:#BEC4D3;max-width:340px;" data-i18n="materialsIntro">Le verre, le bambou et le bois traversent le feu et le temps. Le plastique, jamais.</p>
       </div>
-      <div id="dc-materials" class="dc-materials-grid" data-reveal-group style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(239,232,218,.12);border-radius:18px;overflow:hidden;"></div>
+      <div id="dc-materials" class="dc-materials-grid" data-reveal-group style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(239,232,218,.12);border-radius:18px;overflow:hidden;"></div>
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(239,232,218,.12);border-radius:18px;overflow:hidden;"></div>
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(239,232,218,.12);border-radius:18px;overflow:hidden;"></div>
@@ -171,19 +191,14 @@
 
   <!-- ===================== PRATICIEN ===================== -->
   <section id="praticien" style="padding:120px 42px;background:#F5EFE4;">
-    <div class="dc-prac-grid" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center;">
+    <div class="dc-prac-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center;">
       <div data-reveal style="position:relative;aspect-ratio:4/5;border-radius:24px 24px 160px 160px;overflow:hidden;box-shadow:0 40px 80px -34px rgba(55,66,92,.5);">
         <img src="images/praticien.jpg" alt="Portrait du praticien" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
       <div data-reveal>
         <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#A9884F;margin-bottom:14px;" data-i18n="pracEyebrow">Le Praticien · Expertise</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4vw,56px);letter-spacing:-.5px;line-height:1.05;margin-bottom:24px;" data-i18n="pracTitle">Vingt ans à écouter le corps</h2>
-        <p style="font-size:17px;line-height:1.75;font-weight:300;color:#4E5772;margin-bottom:22px;" data-i18n-html="pracBodyHtml">Formé à Chengdu puis à Paris, notre praticien pratique le <em style="font-style:italic;color:#A9884F;">bàguàn</em> dans le respect strict de la tradition. Chaque séance commence par un bilan énergétique, se poursuit par la pose des ventouses sur les points d'acupuncture, et se conclut par un temps de repos.</p>
-        <div style="display:flex;gap:40px;flex-wrap:wrap;margin-top:30px;">
-          <div><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:#A9884F;line-height:1;">20+</div><div style="font-size:12px;letter-spacing:1px;color:#6A7288;margin-top:4px;" data-i18n="pracStat1">ans de pratique</div></div>
-          <div><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:#A9884F;line-height:1;">3&nbsp;000</div><div style="font-size:12px;letter-spacing:1px;color:#6A7288;margin-top:4px;" data-i18n="pracStat2">patients accompagnés</div></div>
-          <div><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:#A9884F;line-height:1;">成都</div><div style="font-size:12px;letter-spacing:1px;color:#6A7288;margin-top:4px;" data-i18n="pracStat3">formé à Chengdu</div></div>
-        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4vw,56px);letter-spacing:-.5px;line-height:1.05;margin-bottom:24px;" data-i18n="pracTitle">À l'écoute du corps</h2>
+        <p style="font-size:17px;line-height:1.75;font-weight:300;color:#4E5772;" data-i18n-html="pracBodyHtml">Chaque séance commence par un bilan, un massage et une relaxation générale, se poursuit par la pose des ventouses sur des points travaillés et maîtrisés, et se conclut par un temps de repos.</p>
       </div>
     </div>
   </section>
@@ -211,7 +226,7 @@
         <div style="background:rgba(255,255,255,.6);border:1px solid rgba(55,66,92,.1);border-radius:16px;padding:30px 22px;display:flex;flex-direction:column;align-items:center;gap:14px;">
           <div style="width:52px;height:52px;border-radius:12px;background:rgba(55,66,92,.08);display:flex;align-items:center;justify-content:center;color:#37425C;font-family:'Noto Serif SC',serif;font-size:24px;">真</div>
           <div style="font-size:15px;font-weight:600;color:#37425C;" data-i18n="cert4Title">100% sans plastique</div>
-          <div style="font-size:12px;line-height:1.5;color:#6A7288;font-weight:300;" data-i18n="cert4">Verre, bambou, cuivre, bois uniquement</div>
+          <div style="font-size:12px;line-height:1.5;color:#6A7288;font-weight:300;" data-i18n="cert4">Verre, bambou, bois uniquement</div>
         </div>
       </div>
     </div>
@@ -226,28 +241,45 @@
       </div>
       <div class="dc-pricing-grid" data-reveal-group style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;">
         <div style="background:#F5EFE4;border:1px solid rgba(55,66,92,.1);border-radius:22px;padding:38px 32px;display:flex;flex-direction:column;">
-          <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:#A9884F;margin-bottom:6px;">初探</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;" data-i18n="plan1Name">Séance Découverte</h3>
+          <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:#A9884F;margin-bottom:6px;">排毒</div>
+          <h3 class="dc-plan-name" style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;" data-i18n="plan1Name">Formule Petit Detox</h3>
           <div style="font-size:13px;color:#6A7288;margin:6px 0 22px;" data-i18n="plan1Meta">1 séance · 45 min</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#37425C;line-height:1;">70€</div>
-          <p style="font-size:14px;line-height:1.6;font-weight:300;color:#525B75;margin:20px 0 26px;flex:1;" data-i18n="plan1Desc">Bilan énergétique, première pose de ventouses et conseils personnalisés.</p>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#37425C;line-height:1;">55€</div>
+          <ul style="list-style:none;margin:34px 0 26px;flex:1;display:flex;flex-direction:column;gap:12px;font-size:13.5px;line-height:1.5;font-weight:300;color:#525B75;">
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-shield"/></svg><span data-i18n="plan1Feat1">Renforcement immunitaire général</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-wind"/></svg><span data-i18n="plan1Feat2">Détoxification pulmonaire</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-zap"/></svg><span data-i18n="plan1Feat3">Équilibre énergétique</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-scale"/></svg><span data-i18n="plan1Feat4">Stabilité et rééquilibrage nerveux</span></li>
+          </ul>
           <a href="#rdv" style="text-align:center;border:1px solid rgba(55,66,92,.3);color:#37425C;padding:13px;border-radius:100px;font-size:14px;" data-i18n="book">Réserver</a>
         </div>
-        <div class="dc-pricing-featured" style="background:#37425C;color:#EFE8DA;border-radius:22px;padding:38px 32px;display:flex;flex-direction:column;position:relative;box-shadow:0 40px 80px -34px rgba(55,66,92,.7);transform:translateY(-12px);">
+        <div class="dc-pricing-featured" style="background:#37425C;color:#EFE8DA;border-radius:22px;padding:50px 32px 38px;display:flex;flex-direction:column;position:relative;box-shadow:0 40px 80px -34px rgba(55,66,92,.7);transform:translateY(-12px);">
           <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#A9884F;color:#FBF6EC;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:100px;white-space:nowrap;" data-i18n="plan2Badge">Le plus choisi</div>
-          <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:#C6A96A;margin-bottom:6px;">养生</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;" data-i18n="plan2Name">Cure Signature</h3>
-          <div style="font-size:13px;color:#BEC4D3;margin:6px 0 22px;" data-i18n="plan2Meta">5 séances · protocole complet</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#EFE8DA;line-height:1;">300€</div>
-          <p style="font-size:14px;line-height:1.6;font-weight:300;color:#BEC4D3;margin:20px 0 26px;flex:1;" data-i18n="plan2Desc">Un accompagnement sur plusieurs semaines pour des résultats durables et un rééquilibrage profond du Qi.</p>
+          <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:#C6A96A;margin-bottom:6px;">推罐</div>
+          <h3 class="dc-plan-name" style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;" data-i18n="plan2Name">Formule Massage Ventouse</h3>
+          <div style="font-size:13px;color:#BEC4D3;margin:6px 0 22px;" data-i18n="plan2Meta">1 séance · 60 min</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#EFE8DA;line-height:1;">75€</div>
+          <ul style="list-style:none;margin:34px 0 26px;flex:1;display:flex;flex-direction:column;gap:12px;font-size:13.5px;line-height:1.5;font-weight:300;color:#BEC4D3;">
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-waves"/></svg><span data-i18n="plan2Feat1">Dénoue les tensions du dos, des épaules et de la nuque</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-layers"/></svg><span data-i18n="plan2Feat2">Relâche les fascias et les nœuds myofasciaux</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-heartpulse"/></svg><span data-i18n="plan2Feat3">Relance la circulation sanguine et lymphatique</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-moon"/></svg><span data-i18n="plan2Feat4">Apaise le système nerveux et le sommeil</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-feather"/></svg><span data-i18n="plan2Feat5">Procure une détente profonde et durable</span></li>
+          </ul>
           <a href="#rdv" style="text-align:center;background:#C6A96A;color:#37425C;padding:13px;border-radius:100px;font-size:14px;font-weight:600;" data-i18n="book">Réserver</a>
         </div>
         <div style="background:#F5EFE4;border:1px solid rgba(55,66,92,.1);border-radius:22px;padding:38px 32px;display:flex;flex-direction:column;">
-          <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:#A9884F;margin-bottom:6px;">御礼</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;" data-i18n="plan3Name">Rituel Impérial</h3>
-          <div style="font-size:13px;color:#6A7288;margin:6px 0 22px;" data-i18n="plan3Meta">1 séance · 90 min</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#37425C;line-height:1;">140€</div>
-          <p style="font-size:14px;line-height:1.6;font-weight:300;color:#525B75;margin:20px 0 26px;flex:1;" data-i18n="plan3Desc">Cupping, moxibustion et massage Tui Na réunis. L'expérience la plus complète.</p>
+          <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:#A9884F;margin-bottom:6px;">运动</div>
+          <h3 class="dc-plan-name" style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;" data-i18n="plan3Name">Formule Récupération Musculaire</h3>
+          <div style="font-size:13px;color:#6A7288;margin:6px 0 22px;" data-i18n="plan3Meta">1 séance · 75 min</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#37425C;line-height:1;">90€</div>
+          <ul style="list-style:none;margin:34px 0 26px;flex:1;display:flex;flex-direction:column;gap:12px;font-size:13.5px;line-height:1.5;font-weight:300;color:#525B75;">
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-layers"/></svg><span data-i18n="plan3Feat1">Décolle les tissus en profondeur pour une meilleure qualité musculaire</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-heartpulse"/></svg><span data-i18n="plan3Feat2">Améliore la circulation sanguine et lymphatique</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-droplet"/></svg><span data-i18n="plan3Feat3">Favorise l'élimination des toxines</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-waves"/></svg><span data-i18n="plan3Feat4">Soulage les tensions musculaires, courbatures et spasmes</span></li>
+            <li style="display:flex;gap:10px;"><svg class="dc-ic"><use href="#i-move"/></svg><span data-i18n="plan3Feat5">Optimise la récupération et améliore la souplesse articulaire</span></li>
+          </ul>
           <a href="#rdv" style="text-align:center;border:1px solid rgba(55,66,92,.3);color:#37425C;padding:13px;border-radius:100px;font-size:14px;" data-i18n="book">Réserver</a>
         </div>
       </div>
@@ -272,32 +304,15 @@
   <!-- ===================== RDV ===================== -->
   <section id="rdv" style="position:relative;padding:120px 42px;background:linear-gradient(158deg,#C9DCEC 0%,#F4EEE3 50%,#EEC9D2 100%);overflow:hidden;">
     <div data-parallax="0.16" style="position:absolute;bottom:-14%;left:-3%;font-family:'Ma Shan Zheng',cursive;font-size:min(40vw,560px);line-height:.8;color:rgba(255,255,255,.4);pointer-events:none;user-select:none;">通</div>
-    <div class="dc-rdv-grid" style="position:relative;z-index:2;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
-      <div data-reveal>
-        <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#4C5670;margin-bottom:14px;" data-i18n="bookEyebrow">Prise de rendez-vous</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.6vw,64px);letter-spacing:-.6px;line-height:1.02;margin-bottom:20px;" data-i18n="bookTitle">Réservez votre séance</h2>
-        <p style="font-size:17px;line-height:1.7;font-weight:300;color:#4E5772;max-width:380px;" data-i18n="bookBody">Écrivez-nous et nous confirmons votre créneau sous 24 h. Première visite : prévoyez 15 minutes de bilan.</p>
-        <div style="margin-top:28px;font-size:15px;color:#37425C;line-height:1.9;">
-          <div>📍 12 rue du Temple, 75004 Paris</div>
-          <div>✉️ bonjour@dry-cups.fr &nbsp;·&nbsp; ☎️ 01 84 00 00 00</div>
-        </div>
-      </div>
-      <div data-reveal style="background:rgba(255,255,255,.62);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.6);border-radius:22px;padding:34px;box-shadow:0 40px 80px -34px rgba(55,66,92,.5);">
-        <div id="dc-booked" style="display:none;text-align:center;padding:30px 10px;">
-          <div style="font-family:'Ma Shan Zheng',cursive;font-size:64px;color:#A9884F;line-height:1;margin-bottom:14px;">谢</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin-bottom:8px;" data-i18n="bookedTitle">Demande envoyée</h3>
-          <p style="font-size:15px;font-weight:300;color:#525B75;" data-i18n="bookedBody">Merci, nous revenons vers vous sous 24 h.</p>
-        </div>
-        <div id="dc-form" style="display:flex;flex-direction:column;">
-          <input placeholder="Votre nom" data-i18n-ph="formName" style="width:100%;padding:14px 16px;border:1px solid rgba(55,66,92,.2);border-radius:11px 11px 0 0;background:rgba(255,255,255,.7);font-size:15px;">
-          <div style="display:flex;margin-top:-1px;">
-            <input placeholder="Téléphone" data-i18n-ph="formPhone" style="width:100%;padding:14px 16px;border:1px solid rgba(55,66,92,.2);border-radius:0;background:rgba(255,255,255,.7);font-size:15px;">
-            <input type="date" style="width:100%;margin-left:-1px;padding:14px 16px;border:1px solid rgba(55,66,92,.2);border-radius:0;background:rgba(255,255,255,.7);font-size:15px;color:#525B75;">
-          </div>
-          <textarea placeholder="Un mot sur ce qui vous amène (optionnel)" data-i18n-ph="formMsg" rows="3" style="width:100%;margin-top:-1px;padding:14px 16px;border:1px solid rgba(55,66,92,.2);border-radius:0 0 11px 11px;background:rgba(255,255,255,.7);font-size:15px;resize:none;"></textarea>
-          <button id="dc-book-btn" style="width:100%;margin-top:14px;background:#37425C;color:#F5EFE4;padding:16px;border:none;border-radius:100px;font-size:15px;letter-spacing:.3px;cursor:pointer;box-shadow:0 16px 34px -16px rgba(55,66,92,.95);" data-i18n="formSubmit">Demander ce créneau</button>
-        </div>
-      </div>
+    <div data-reveal style="position:relative;z-index:2;max-width:1180px;margin:0 auto;text-align:center;">
+      <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#4C5670;margin-bottom:14px;" data-i18n="bookEyebrow">Prise de rendez-vous</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.6vw,64px);letter-spacing:-.6px;line-height:1.02;margin-bottom:20px;" data-i18n="bookTitle">Réservez votre séance</h2>
+      <p style="font-size:17px;line-height:1.7;font-weight:300;color:#4E5772;max-width:460px;margin:0 auto;" data-i18n="bookBody">La réservation se fait par téléphone : nous confirmons votre créneau sous 24 h.</p>
+      <p style="font-size:15px;line-height:1.7;font-weight:300;color:#6A7288;max-width:460px;margin:10px auto 0;" data-i18n="bookNote">Première visite : prévoyez 15 minutes de bilan.</p>
+      <a class="dc-call" href="tel:+33613567283" style="display:inline-flex;align-items:center;gap:12px;margin-top:34px;background:#37425C;color:#F5EFE4;padding:17px 38px;border-radius:100px;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.5px;white-space:nowrap;box-shadow:0 16px 34px -16px rgba(55,66,92,.95);">
+        <span style="font-size:17px;">☎️</span>+33 6 13 56 72 83
+      </a>
+      <div style="margin-top:22px;font-size:15px;color:#4E5772;" data-i18n="contactArea">📍 Nice, Cannes, Monaco et alentours</div>
     </div>
   </section>
 
@@ -327,7 +342,7 @@
           <img src="images/logo-icon.png" alt="DryCups" style="height:46px;width:auto;display:block;filter:brightness(1.6);">
           <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#EFE8DA;">DryCups</span>
         </div>
-        <p style="font-size:13.5px;line-height:1.7;font-weight:300;max-width:280px;" data-i18n="footerTagline">L'art ancestral des ventouses chauffées, dans sa forme la plus noble. Verre, bambou, cuivre, bois.</p>
+        <p style="font-size:13.5px;line-height:1.7;font-weight:300;max-width:280px;" data-i18n="footerTagline">L'art ancestral des ventouses chauffées, dans sa forme la plus noble. Verre, bambou, bois.</p>
       </div>
       <div>
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7C8398;margin-bottom:16px;" data-i18n="footerNav">Naviguer</div>
@@ -335,7 +350,7 @@
       </div>
       <div>
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7C8398;margin-bottom:16px;" data-i18n="footerContact">Contact</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;"><span>12 rue du Temple</span><span>75004 Paris</span><a href="mailto:bonjour@dry-cups.fr" style="color:#BEC4D3;">bonjour@dry-cups.fr</a></div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;"><span data-i18n="footerArea">Nice · Cannes · Monaco</span><span data-i18n="footerAreaNote">et alentours</span><a href="tel:+33613567283" style="color:#BEC4D3;">+33 6 13 56 72 83</a></div>
       </div>
       <div>
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7C8398;margin-bottom:16px;" data-i18n="footerFollow">Suivre</div>
@@ -368,28 +383,36 @@
       ritualEyebrow: 'La méthode · Quatre gestes', ritualTitle: 'Le Rituel de la ventouse',
       benefitsEyebrow: 'Bienfaits', benefitsTitle: 'Ce que la chaleur remet en mouvement',
       materialsEyebrow: 'Matériaux nobles · Jamais de plastique', materialsTitle: 'Que des matières qui respirent',
-      materialsIntro: 'Le verre, le bambou, le cuivre et le bois traversent le feu et le temps. Le plastique, jamais.',
-      pracEyebrow: 'Le Praticien · Expertise', pracTitle: 'Vingt ans à écouter le corps',
-      pracBodyHtml: 'Formé à Chengdu puis à Paris, notre praticien pratique le <em style="font-style:italic;color:#A9884F;">bàguàn</em> dans le respect strict de la tradition. Chaque séance commence par un bilan énergétique, se poursuit par la pose des ventouses sur les points d\'acupuncture, et se conclut par un temps de repos.',
-      pracStat1: 'ans de pratique', pracStat2: 'patients accompagnés', pracStat3: 'formé à Chengdu',
+      materialsIntro: 'Le verre, le bambou et le bois traversent le feu et le temps. Le plastique, jamais.',
+      pracEyebrow: 'Le Praticien · Expertise', pracTitle: 'À l\'écoute du corps',
+      pracBodyHtml: 'Chaque séance commence par un bilan, un massage et une relaxation générale, se poursuit par la pose des ventouses sur des points travaillés et maîtrisés, et se conclut par un temps de repos.',
       certEyebrow: 'Certifications & Garanties', cert1: 'Certification qualité & sécurité des soins',
       cert2Title: 'Hygiène irréprochable', cert2: 'Matériel stérilisé avant chaque séance',
       cert3Title: 'Praticien diplômé', cert3: 'Médecine traditionnelle chinoise',
-      cert4Title: '100% sans plastique', cert4: 'Verre, bambou, cuivre, bois uniquement',
+      cert4Title: '100% sans plastique', cert4: 'Verre, bambou, bois uniquement',
       pricingEyebrow: 'Tarifs · Offres', pricingTitle: 'Choisissez votre parcours',
-      plan1Name: 'Séance Découverte', plan1Meta: '1 séance · 45 min', plan1Desc: 'Bilan énergétique, première pose de ventouses et conseils personnalisés.',
-      plan2Badge: 'Le plus choisi', plan2Name: 'Cure Signature', plan2Meta: '5 séances · protocole complet', plan2Desc: 'Un accompagnement sur plusieurs semaines pour des résultats durables et un rééquilibrage profond du Qi.',
-      plan3Name: 'Rituel Impérial', plan3Meta: '1 séance · 90 min', plan3Desc: 'Cupping, moxibustion et massage Tui Na réunis. L\'expérience la plus complète.',
+      plan1Name: 'Formule Petit Detox', plan1Meta: '1 séance · 45 min',
+      plan1Feat1: 'Renforcement immunitaire général', plan1Feat2: 'Détoxification pulmonaire',
+      plan1Feat3: 'Équilibre énergétique', plan1Feat4: 'Stabilité et rééquilibrage nerveux',
+      plan2Badge: 'Le plus choisi', plan2Name: 'Formule Massage Ventouse', plan2Meta: '1 séance · 60 min',
+      plan2Feat1: 'Dénoue les tensions du dos, des épaules et de la nuque', plan2Feat2: 'Relâche les fascias et les nœuds myofasciaux',
+      plan2Feat3: 'Relance la circulation sanguine et lymphatique', plan2Feat4: 'Apaise le système nerveux et le sommeil',
+      plan2Feat5: 'Procure une détente profonde et durable',
+      plan3Name: 'Formule Récupération Musculaire', plan3Meta: '1 séance · 75 min',
+      plan3Feat1: 'Décolle les tissus en profondeur pour une meilleure qualité musculaire', plan3Feat2: 'Améliore la circulation sanguine et lymphatique',
+      plan3Feat3: 'Favorise l\'élimination des toxines', plan3Feat4: 'Soulage les tensions musculaires, courbatures et spasmes',
+      plan3Feat5: 'Optimise la récupération et améliore la souplesse articulaire',
       book: 'Réserver',
       testiEyebrow: 'Témoignages · 口碑', testiTitle: 'Ils ont retrouvé le mouvement',
       bookEyebrow: 'Prise de rendez-vous', bookTitle: 'Réservez votre séance',
-      bookBody: 'Écrivez-nous et nous confirmons votre créneau sous 24 h. Première visite : prévoyez 15 minutes de bilan.',
-      bookedTitle: 'Demande envoyée', bookedBody: 'Merci, nous revenons vers vous sous 24 h.',
-      formName: 'Votre nom', formPhone: 'Téléphone', formMsg: 'Un mot sur ce qui vous amène (optionnel)', formSubmit: 'Demander ce créneau',
+      bookBody: 'La réservation se fait par téléphone : nous confirmons votre créneau sous 24 h.',
+      bookNote: 'Première visite : prévoyez 15 minutes de bilan.',
+      contactArea: '📍 Nice, Cannes, Monaco et alentours',
       faqEyebrow: 'Questions fréquentes', faqTitle: 'Tout ce qu\'il faut savoir',
-      footerTagline: 'L\'art ancestral des ventouses chauffées, dans sa forme la plus noble. Verre, bambou, cuivre, bois.',
+      footerTagline: 'L\'art ancestral des ventouses chauffées, dans sa forme la plus noble. Verre, bambou, bois.',
       footerNav: 'Naviguer', footerContact: 'Contact', footerFollow: 'Suivre', footerLegal: '© 2026 DryCups · Certifié Essentia Therapy',
-      docTitle: 'DryCups — L\'art ancestral des ventouses chauffées · Paris'
+      footerArea: 'Nice · Cannes · Monaco', footerAreaNote: 'et alentours',
+      docTitle: 'DryCups — L\'art ancestral des ventouses chauffées · Côte d\'Azur'
     },
     en: {
       navRitual: 'The Ritual', navBenefits: 'Benefits', navMaterials: 'Materials', navPractitioner: 'Practitioner', navPricing: 'Pricing', navBook: 'Book',
@@ -401,28 +424,36 @@
       ritualEyebrow: 'The method · Four gestures', ritualTitle: 'The Cupping Ritual',
       benefitsEyebrow: 'Benefits', benefitsTitle: 'What the heat sets back in motion',
       materialsEyebrow: 'Noble materials · No plastic. Ever.', materialsTitle: 'Only materials that breathe',
-      materialsIntro: 'Glass, bamboo, copper and wood pass through fire and time. Plastic, never.',
-      pracEyebrow: 'The Practitioner · Expertise', pracTitle: 'Twenty years listening to the body',
-      pracBodyHtml: 'Trained in Chengdu and then in Paris, our practitioner performs <em style="font-style:italic;color:#A9884F;">bàguàn</em> in strict respect of tradition. Every session opens with an energetic assessment, continues with the placing of cups on acupuncture points, and closes with a moment of rest.',
-      pracStat1: 'years of practice', pracStat2: 'patients cared for', pracStat3: 'trained in Chengdu',
+      materialsIntro: 'Glass, bamboo and wood pass through fire and time. Plastic, never.',
+      pracEyebrow: 'The Practitioner · Expertise', pracTitle: 'Listening to the body',
+      pracBodyHtml: 'Every session begins with an assessment, a massage and general relaxation, continues with the placing of cups on carefully worked and mastered points, and closes with a moment of rest.',
       certEyebrow: 'Certifications & Guarantees', cert1: 'Quality & safety of care certification',
       cert2Title: 'Impeccable hygiene', cert2: 'Equipment sterilised before every session',
       cert3Title: 'Certified practitioner', cert3: 'Traditional Chinese Medicine',
-      cert4Title: '100% plastic-free', cert4: 'Glass, bamboo, copper, wood only',
+      cert4Title: '100% plastic-free', cert4: 'Glass, bamboo, wood only',
       pricingEyebrow: 'Pricing · Offers', pricingTitle: 'Choose your journey',
-      plan1Name: 'Discovery Session', plan1Meta: '1 session · 45 min', plan1Desc: 'Energetic assessment, a first placing of cups and personalised advice.',
-      plan2Badge: 'Most chosen', plan2Name: 'Signature Cure', plan2Meta: '5 sessions · full protocol', plan2Desc: 'A multi-week programme for lasting results and a deep rebalancing of the Qi.',
-      plan3Name: 'Imperial Ritual', plan3Meta: '1 session · 90 min', plan3Desc: 'Cupping, moxibustion and Tui Na massage combined. The most complete experience.',
+      plan1Name: 'Light Detox Formula', plan1Meta: '1 session · 45 min',
+      plan1Feat1: 'General immune support', plan1Feat2: 'Pulmonary detoxification',
+      plan1Feat3: 'Energetic balance', plan1Feat4: 'Nervous stability and rebalancing',
+      plan2Badge: 'Most chosen', plan2Name: 'Cupping Massage Formula', plan2Meta: '1 session · 60 min',
+      plan2Feat1: 'Releases tension in the back, shoulders and neck', plan2Feat2: 'Loosens fascia and myofascial knots',
+      plan2Feat3: 'Boosts blood and lymphatic circulation', plan2Feat4: 'Calms the nervous system and improves sleep',
+      plan2Feat5: 'Delivers deep, lasting relaxation',
+      plan3Name: 'Muscle Recovery Formula', plan3Meta: '1 session · 75 min',
+      plan3Feat1: 'Lifts deep tissue for better muscle quality', plan3Feat2: 'Improves blood and lymphatic circulation',
+      plan3Feat3: 'Supports the elimination of toxins', plan3Feat4: 'Relieves muscle tension, soreness and spasms',
+      plan3Feat5: 'Optimises recovery and improves joint mobility',
       book: 'Book',
       testiEyebrow: 'Testimonials · 口碑', testiTitle: 'They found movement again',
       bookEyebrow: 'Booking', bookTitle: 'Reserve your session',
-      bookBody: 'Write to us and we confirm your slot within 24 hours. First visit: allow 15 minutes for the assessment.',
-      bookedTitle: 'Request sent', bookedBody: 'Thank you. We\'ll get back to you within 24 hours.',
-      formName: 'Your name', formPhone: 'Phone', formMsg: 'A word about what brings you (optional)', formSubmit: 'Request this slot',
+      bookBody: 'Booking is by phone: we confirm your slot within 24 hours.',
+      bookNote: 'First visit: allow 15 minutes for the assessment.',
+      contactArea: '📍 Nice, Cannes, Monaco and surrounding area',
       faqEyebrow: 'Frequently asked questions', faqTitle: 'Everything you need to know',
-      footerTagline: 'The ancestral art of fire cupping, in its most noble form. Glass, bamboo, copper, wood.',
+      footerTagline: 'The ancestral art of fire cupping, in its most noble form. Glass, bamboo, wood.',
       footerNav: 'Navigate', footerContact: 'Contact', footerFollow: 'Follow', footerLegal: '© 2026 DryCups · Essentia Therapy certified',
-      docTitle: 'DryCups — The ancestral art of fire cupping · Paris'
+      footerArea: 'Nice · Cannes · Monaco', footerAreaNote: 'and surrounding area',
+      docTitle: 'DryCups — The ancestral art of fire cupping · French Riviera'
     }
   };
 
@@ -463,13 +494,11 @@
       fr: [
         { img: 'images/verre.jpg', char: '琉璃', title: 'Verre soufflé', desc: "Soufflé à la bouche, chauffé à la flamme. Il laisse voir la peau et diffuse la chaleur en douceur." },
         { img: 'images/bambou.jpg', char: '竹罐', title: 'Bambou', desc: "Bouilli selon la méthode du Sud. Il retient la chaleur, respire, et vieillit noblement." },
-        { img: 'images/laiton.jpg', char: '黄铜', title: 'Cuivre & laiton', desc: "Instruments et supports en métaux nobles, patinés par l'usage, jamais par le plastique." },
         { img: 'images/bois.jpg', char: '原木', title: 'Bois brut', desc: "Plateaux et manches en bois massif huilé, pour un rituel ancré dans la matière." }
       ],
       en: [
         { img: 'images/verre.jpg', char: '琉璃', title: 'Blown Glass', desc: "Mouth-blown, warmed over a flame. It reveals the skin and diffuses heat gently." },
         { img: 'images/bambou.jpg', char: '竹罐', title: 'Bamboo', desc: "Boiled in the southern method. It holds heat, breathes, and ages nobly." },
-        { img: 'images/laiton.jpg', char: '黄铜', title: 'Copper & Brass', desc: "Instruments and stands in noble metals, patinated by use, never by plastic." },
         { img: 'images/bois.jpg', char: '原木', title: 'Raw Wood', desc: "Trays and handles in oiled solid wood, for a ritual rooted in matter." }
       ]
     },
@@ -492,7 +521,7 @@
         { q: 'Les marques restent-elles longtemps ?', a: "Les cercles rosés ou violacés sont normaux et sans gravité. Ils reflètent la circulation et s'estompent généralement en 3 à 7 jours." },
         { q: 'Combien de séances faut-il ?', a: "Une séance apporte déjà un soulagement. Pour un effet durable, nous recommandons une cure de 3 à 5 séances espacées d'une à deux semaines." },
         { q: 'Y a-t-il des contre-indications ?', a: "Le cupping est déconseillé en cas de grossesse, de troubles de la coagulation ou sur peau lésée. Le bilan initial permet d'écarter tout risque." },
-        { q: 'Quel matériel utilisez-vous ?', a: "Uniquement des matériaux nobles (verre soufflé, bambou, cuivre et bois), stérilisés avant chaque séance. Jamais de plastique." }
+        { q: 'Quel matériel utilisez-vous ?', a: "Uniquement des matériaux nobles (verre soufflé, bambou et bois), stérilisés avant chaque séance. Jamais de plastique." }
       ],
       en: [
         { q: 'Is it painful?', a: "No. The suction gives a gentle, warm pulling sensation. Most of our patients describe it as deeply relaxing." },
@@ -500,12 +529,12 @@
         { q: 'Do the marks last long?', a: "The pink or purplish circles are normal and harmless. They reflect circulation and usually fade within 3 to 7 days." },
         { q: 'How many sessions are needed?', a: "A single session already brings relief. For lasting effect we recommend a cure of 3 to 5 sessions, one to two weeks apart." },
         { q: 'Are there contraindications?', a: "Cupping is not advised during pregnancy, with clotting disorders, or on broken skin. The initial assessment rules out any risk." },
-        { q: 'What equipment do you use?', a: "Only noble materials (blown glass, bamboo, copper and wood), sterilised before every session. Never plastic." }
+        { q: 'What equipment do you use?', a: "Only noble materials (blown glass, bamboo and wood), sterilised before every session. Never plastic." }
       ]
     }
   };
 
-  var state = { lang: 'fr', activeStep: 0, openFaq: 0, booked: false };
+  var state = { lang: 'fr', activeStep: 0, openFaq: 0 };
 
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
@@ -514,7 +543,6 @@
     var d = I18N[state.lang];
     $$('[data-i18n]').forEach(function (el) { var k = el.getAttribute('data-i18n'); if (d[k] != null) el.textContent = d[k]; });
     $$('[data-i18n-html]').forEach(function (el) { var k = el.getAttribute('data-i18n-html'); if (d[k] != null) el.innerHTML = d[k]; });
-    $$('[data-i18n-ph]').forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (d[k] != null) el.placeholder = d[k]; });
     document.documentElement.lang = state.lang;
     document.title = d.docTitle;
   }
@@ -597,11 +625,6 @@
     be.style.color = fr ? '#5A6379' : '#F5EFE4';
   }
 
-  function renderBooking() {
-    $('#dc-booked').style.display = state.booked ? '' : 'none';
-    $('#dc-form').style.display = state.booked ? 'none' : '';
-  }
-
   function setLang(lang) {
     state.lang = lang;
     renderText();
@@ -651,7 +674,6 @@
 
   function boot() {
     setLang('fr');
-    renderBooking();
 
     $('#dc-btn-fr').addEventListener('click', function () { setLang('fr'); });
     $('#dc-btn-en').addEventListener('click', function () { setLang('en'); });
@@ -663,12 +685,6 @@
       state.openFaq = state.openFaq === i ? -1 : i;
       renderFaqs();
       if (window.ScrollTrigger) window.ScrollTrigger.refresh();
-    });
-
-    $('#dc-book-btn').addEventListener('click', function (e) {
-      e.preventDefault();
-      state.booked = true;
-      renderBooking();
     });
 
     document.addEventListener('click', function (e) {
